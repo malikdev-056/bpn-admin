@@ -1,0 +1,34 @@
+.empty-state-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+}
+
+.empty-state-panel.compact {
+  padding: 1.5rem 1rem;
+}
+
+.empty-state-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.7;
+}
+
+.empty-state-panel strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--text-h);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state-panel p {
+  margin: 0;
+  max-width: 360px;
+  color: var(--text);
+  line-height: 1.5;
+}

@@ -1,0 +1,154 @@
+.upgrade-requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.upgrade-request-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.upgrade-request-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.upgrade-request-header h3 {
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.upgrade-request-id {
+  font-size: 0.8rem;
+  color: var(--text);
+  font-weight: 400;
+}
+
+.upgrade-request-meta {
+  font-size: 0.85rem;
+  color: var(--text);
+  margin-top: 0.25rem;
+}
+
+.upgrade-req-badge {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.upgrade-req-badge.pending {
+  background: rgba(234, 179, 8, 0.15);
+  color: var(--warning);
+}
+
+.upgrade-req-badge.approved {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--success);
+}
+
+.upgrade-req-badge.rejected {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+}
+
+.upgrade-request-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.upgrade-request-details span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text);
+  margin-bottom: 0.15rem;
+}
+
+.upgrade-request-details strong {
+  font-size: 0.9rem;
+  color: var(--text-h);
+}
+
+.upgrade-request-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.upgrade-request-actions button {
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.upgrade-request-actions .btn-secondary {
+  background: var(--surface-2);
+  color: var(--text-h);
+  border: 1px solid var(--border);
+}
+
+.upgrade-request-actions .btn-approve {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--success);
+}
+
+.upgrade-request-actions .btn-reject {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+}
+
+.upgrade-request-actions button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.upgrade-screenshot-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.75);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.upgrade-screenshot-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.upgrade-screenshot-modal-content img {
+  max-width: 100%;
+  max-height: 85vh;
+  border-radius: 12px;
+}
+
+.upgrade-screenshot-modal-content .modal-close {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text-h);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
