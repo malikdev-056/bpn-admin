@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { api } from '../api/client'
 import EmptyState from '../components/EmptyState'
+import ReceiptModal from '../components/ReceiptModal'
 import './PaymentsPage.css'
 
 function PaymentStatusBadge({ status }) {
@@ -12,7 +13,7 @@ export default function PaymentsPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [updatingId, setUpdatingId] = useState(null)
-  const [previewUrl, setPreviewUrl] = useState(null)
+  const [receiptItem, setReceiptItem] = useState(null)
 
   async function loadPayments() {
     setLoading(true)
@@ -101,15 +102,13 @@ export default function PaymentsPage() {
               </div>
 
               <div className="payment-actions">
-                {payment.screenshotPath && (
                   <button
                     type="button"
-                    className="btn-secondary"
-                    onClick={() => setPreviewUrl(payment.screenshotPath)}
+                    className="btn-receipt"
+                    onClick={() => setReceiptItem(payment)}
                   >
-                    View Screenshot
+                    View Receipt
                   </button>
-                )}
 
                 {payment.status === 'pending' && (
                   <>
@@ -137,15 +136,12 @@ export default function PaymentsPage() {
         )}
       </div>
 
-      {previewUrl && (
-        <div className="screenshot-modal" onClick={() => setPreviewUrl(null)}>
-          <div className="screenshot-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button type="button" className="modal-close" onClick={() => setPreviewUrl(null)}>
-              ×
-            </button>
-            <img src={previewUrl} alt="Payment screenshot" />
-          </div>
-        </div>
+      {receiptItem && (
+        <ReceiptModal
+          item={receiptItem}
+          type="payment"
+          onClose={() => setReceiptItem(null)}
+        />
       )}
     </div>
   )

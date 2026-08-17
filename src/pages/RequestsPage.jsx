@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { api } from '../api/client'
 import EmptyState from '../components/EmptyState'
+import ReceiptModal from '../components/ReceiptModal'
 import './RequestsPage.css'
 
 const TABS = [
@@ -40,6 +41,7 @@ export default function RequestsPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [updatingId, setUpdatingId] = useState(null)
+  const [receiptItem, setReceiptItem] = useState(null)
 
   async function loadRequests(type) {
     setLoading(true)
@@ -201,6 +203,13 @@ export default function RequestsPage() {
                 </div>
 
                 <div className="request-actions">
+                  <button
+                    type="button"
+                    className="btn-receipt"
+                    onClick={() => setReceiptItem(request)}
+                  >
+                    View Receipt
+                  </button>
                   {request.status === 'pending' && (
                     <>
                       <button
@@ -226,6 +235,13 @@ export default function RequestsPage() {
             ))
           )}
         </div>
+      )}
+      {receiptItem && (
+        <ReceiptModal
+          item={receiptItem}
+          type="request"
+          onClose={() => setReceiptItem(null)}
+        />
       )}
     </div>
   )
