@@ -5,10 +5,13 @@
 }
 
 .upgrade-request-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.25rem;
+  background:
+    linear-gradient(180deg, rgba(8, 14, 28, 0.95), rgba(12, 18, 34, 0.98)),
+    radial-gradient(circle at top left, rgba(139, 92, 246, 0.18), transparent 32%);
+  border: 1px solid rgba(129, 140, 248, 0.26);
+  border-radius: 18px;
+  padding: 1.2rem 1.2rem 1.15rem;
+  box-shadow: 0 18px 36px rgba(3, 7, 18, 0.42), inset 0 1px 0 rgba(255,255,255,0.03);
 }
 
 .upgrade-request-header {
@@ -20,96 +23,121 @@
 }
 
 .upgrade-request-header h3 {
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  color: #edf3ff;
 }
 
 .upgrade-request-id {
   font-size: 0.8rem;
-  color: var(--text);
-  font-weight: 400;
+  color: #9fb1d0;
+  font-weight: 500;
 }
 
 .upgrade-request-meta {
   font-size: 0.85rem;
-  color: var(--text);
-  margin-top: 0.25rem;
+  color: #a8b8d8;
+  margin-top: 0.3rem;
 }
 
 .upgrade-req-badge {
-  display: inline-block;
-  padding: 0.25rem 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.33rem 0.72rem;
   border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 800;
   text-transform: capitalize;
+  letter-spacing: 0.04em;
 }
 
 .upgrade-req-badge.pending {
-  background: rgba(234, 179, 8, 0.15);
-  color: var(--warning);
+  background: rgba(249, 168, 37, 0.12);
+  color: #f6c76a;
+  border: 1px solid rgba(249, 168, 37, 0.26);
 }
 
 .upgrade-req-badge.approved {
-  background: rgba(34, 197, 94, 0.15);
-  color: var(--success);
+  background: rgba(52, 211, 153, 0.12);
+  color: #7ee7bb;
+  border: 1px solid rgba(52, 211, 153, 0.26);
 }
 
 .upgrade-req-badge.rejected {
-  background: rgba(239, 68, 68, 0.15);
-  color: var(--danger);
+  background: rgba(248, 113, 113, 0.12);
+  color: #f7a5a5;
+  border: 1px solid rgba(248, 113, 113, 0.24);
 }
 
 .upgrade-request-details {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 0.85rem;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 0.8rem;
   margin-bottom: 1rem;
+  padding: 0.9rem;
+  background: linear-gradient(180deg, rgba(16, 24, 42, 0.9), rgba(12, 18, 32, 0.95));
+  border: 1px solid rgba(96, 165, 250, 0.12);
+  border-radius: 14px;
+}
+
+.upgrade-request-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .upgrade-request-details span {
   display: block;
-  font-size: 0.75rem;
-  color: var(--text);
-  margin-bottom: 0.15rem;
+  font-size: 0.72rem;
+  color: #a0abc1;
 }
 
 .upgrade-request-details strong {
   font-size: 0.9rem;
-  color: var(--text-h);
+  color: #edf4ff;
+  font-weight: 700;
 }
 
 .upgrade-request-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .upgrade-request-actions button {
-  padding: 0.5rem 0.85rem;
-  border-radius: 8px;
-  border: none;
+  padding: 0.62rem 1rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 800;
   cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.upgrade-request-actions button:hover:not(:disabled) {
+  transform: translateY(-1px);
 }
 
 .upgrade-request-actions .btn-secondary {
-  background: var(--surface-2);
-  color: var(--text-h);
-  border: 1px solid var(--border);
+  background: rgba(59, 130, 246, 0.12);
+  color: #dfeeff;
+  border-color: rgba(96, 165, 250, 0.28);
 }
 
 .upgrade-request-actions .btn-approve {
-  background: rgba(34, 197, 94, 0.15);
-  color: var(--success);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.16), rgba(16, 185, 129, 0.12));
+  color: #7ee7bb;
+  border-color: rgba(34, 197, 94, 0.28);
 }
 
 .upgrade-request-actions .btn-reject {
-  background: rgba(239, 68, 68, 0.15);
-  color: var(--danger);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(190, 24, 93, 0.12));
+  color: #f5a5a5;
+  border-color: rgba(239, 68, 68, 0.24);
 }
 
 .upgrade-request-actions button:disabled {
@@ -121,16 +149,22 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(5, 9, 19, 0.72);
   display: grid;
   place-items: center;
   padding: 1rem;
+  backdrop-filter: blur(5px);
 }
 
 .upgrade-screenshot-modal-content {
   position: relative;
-  max-width: 90vw;
+  max-width: 92vw;
   max-height: 90vh;
+  padding: 0.6rem;
+  border-radius: 16px;
+  background: rgba(9, 14, 27, 0.9);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: var(--shadow);
 }
 
 .upgrade-screenshot-modal-content img {
@@ -143,12 +177,13 @@
   position: absolute;
   top: -12px;
   right: -12px;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border: none;
   border-radius: 50%;
-  background: var(--surface);
-  color: var(--text-h);
-  font-size: 1.4rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  font-size: 1.45rem;
   cursor: pointer;
+  box-shadow: 0 10px 24px rgba(139, 92, 246, 0.35);
 }

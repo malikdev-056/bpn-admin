@@ -1,15 +1,21 @@
 :root {
-  --text: #9ab0cc;
-  --text-h: #ffffff;
-  --bg: #060d1f;
-  --surface: #0c1629;
-  --surface-2: #111d35;
-  --border: rgba(77, 184, 255, 0.15);
-  --accent: #4db8ff;
-  --accent-bg: rgba(30, 120, 255, 0.15);
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --danger: #ef4444;
+  --text: #b9c5dc;
+  --text-h: #f8faff;
+  --bg: #090f1d;
+  --bg-2: #101a2d;
+  --surface: rgba(17, 24, 39, 0.86);
+  --surface-2: rgba(20, 31, 52, 0.96);
+  --surface-3: rgba(24, 37, 64, 0.9);
+  --border: rgba(152, 165, 255, 0.18);
+  --accent: #8b5cf6;
+  --accent-2: #47b8ff;
+  --accent-bg: rgba(139, 92, 246, 0.16);
+  --accent-soft: rgba(71, 184, 255, 0.12);
+  --success: #2ecf88;
+  --warning: #f8b84e;
+  --danger: #ff6b7a;
+  --shadow: 0 24px 60px rgba(9, 14, 27, 0.45);
+  --radius: 18px;
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -17,12 +23,19 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   min-height: 100svh;
   font: 16px/145% var(--sans);
   color: var(--text);
-  background: var(--bg);
+  background:
+    radial-gradient(circle at top left, rgba(139, 92, 246, 0.25), transparent 28%),
+    radial-gradient(circle at top right, rgba(71, 184, 255, 0.18), transparent 30%),
+    linear-gradient(180deg, var(--bg) 0%, #0c1325 100%);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -30,11 +43,20 @@ body {
   min-height: 100svh;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   color: var(--text-h);
   margin: 0;
 }
 
-button, input {
+button, input, select {
   font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.35);
 }
